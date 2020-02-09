@@ -12,12 +12,21 @@ class Quiz extends React.Component {
 
   state = {
     remainingMember: [],
-    correctness: '',
+    correctness: false,
   };
+
+  setToCorrect = () => {
+    this.setState({ correctness: true });
+  };
+
 
 render(){
   return (
     <h1 className="correctness"> {this.correctness} </h1>
+    // if(remainingMember == []){
+
+    }
+    <p></p>
 
   );
 }

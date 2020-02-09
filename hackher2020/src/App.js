@@ -9,16 +9,7 @@ import {Tab, Tabs, Row, Col, Nav} from 'react-bootstrap';
 
 class App extends PureComponent {
   state = {
-    isAddingMembers: true,
-    memberData: [["Family Member", "Family"]],
-  };
-
-  switchToMemberView = () => {
-    this.setState({ isAddingMembers: true });
-  };
-
-  switchToQuizView = () => {
-    this.setState({ isAddingMembers: false });
+    memberData: [],
   };
 
   addNewMember = (member) => {
@@ -29,7 +20,6 @@ class App extends PureComponent {
     this.setState(state => {
       const memberData = state.memberData.concat(member);
       return {
-        isAddingMembers: true,
         memberData,
       };
     });
