@@ -11,10 +11,11 @@ class App extends PureComponent {
     memberData: [],
   };
 
-  addNewMember = (name, relation) => {
+  addNewMember = (member) => {
     const fullList = JSON.parse(JSON.stringify(this.state.memberData));
-    fullList.push([name, relation]);
+    fullList.push(member);
     this.setState({ listData: fullList });
+    console.log(this.memberData);
   };
 
   render() {
