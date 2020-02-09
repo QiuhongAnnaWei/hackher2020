@@ -34,12 +34,13 @@ class App extends PureComponent {
   };
 
   render() {
+    console.log(this.state.hasMembers)
     return (
      <>
       <h1 className="App-header"> Alzheimer's </h1>
 
       <div className="body">
-      <Tab.Container className="tabs" defaultActiveKey="first">
+      <Tab.Container className="tabs" defaultActiveKey="newmember">
   <Row>
     <Col sm={3}>
       <Nav variant="pills" className="flex-column">
@@ -60,13 +61,13 @@ class App extends PureComponent {
           <NewMember addNewMember={this.addNewMember}/>
         </Tab.Pane>
         <Tab.Pane eventKey="quiz">
-           <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)} 
-                  hasMembers={this.state.hasMembers}/>
+        {(this.state.hasMembers && <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)} 
+                  hasMembers={this.state.hasMembers}/>) || <h1> Please enter data</h1>}
         </Tab.Pane>
         <Tab.Pane eventKey="reviewcards">
-          {(this.state.dataEmpty && <h1> Please enter data</h1>) ||
-          <ReviewCards members={this.state.memberData} 
-                        hasMembers={this.state.hasMembers}/>}
+          {(this.state.hasMembers && <ReviewCards members={this.state.memberData} 
+                        hasMembers={this.state.hasMembers}/>) ||
+                        <h1> Please enter data</h1>}
         </Tab.Pane>
       </Tab.Content>
     </Col>

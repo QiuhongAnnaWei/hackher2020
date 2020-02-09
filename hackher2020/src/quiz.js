@@ -4,83 +4,61 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import QuizForm from './quizForm.js'
 
 class Quiz extends React.Component {
   static propTypes = {
+    hasMembers: PropTypes.bool.isRequired,
     memberList: PropTypes.array.isRequired,
   };
 
   state = {
-    remainingMember: [],
+    remainingMember: this.props.memberList,
     isCorrect: false,
-    score: 0,
   };
-
-
 
   setToCorrect = () => {
-    this.setState({ isCorrect: true });
-  };
-
-  addToScore = () => {
-    this.setState(score => {const newScore = this.state.score + 1;
-    return{newScore}});
-  };
-
-
-
-
-
-  handleAnswerClick = (e) => {
-
-    if (isCorrect && e.target.nodeName === 'LI') {
-      // Prevent other answers from being clicked after correct answer is clicked
-      e.target.parentNode.style.pointerEvents = 'none';
-
-      e.target.classList.add('right');
-
-      userAnswers[currentStep] = {
-        tries: tries + 1
+    console.log(this.state.remainingMember)
+    var myRemaining = this.state.remainingMember;
+    const current = myRemaining.pop();
+    console.log(this.state.remainingMember)
+    this.setState(state => {
+      return {
+        remainingMember: myRemaining,
+        isCorrect: true,
       };
+    });
+  };
 
-      this.setState({
-        userAnswers: userAnswers
-      });
+  //print correct?
 
-      setTimeout(() => this.showModal(tries), 750);
+  generateQuestion = () => {
+    console.log("hello")
 
-      setTimeout(this.nextStep, 2750);
+    if (this.state.remainingMember == []){
+      return <h1>Congrats! You've identified all family members!</h1>
+    } else {
+      var currMember = this.state.remainingMember[this.state.remainingMember.length - 1]}
+      return (<p>"Who is: " + {currMember[0]} + "?"</p>);
     }
 
-    else if (e.target.nodeName === 'LI') {
-      e.target.style.pointerEvents = 'none';
-      e.target.classList.add('wrong');
-
-      userAnswers[currentStep] = {
-        tries: tries + 1
-      };
-
-      this.setState({
-        userAnswers: userAnswers
-      });
-    }
-  };
-
-render(){
+render() {
+  console.log(this.state.hasMembers)
   return (
     <div>
-    {(this.state.isCorrect && <h1> You are correct!</h1>) || <h1> Please try again! </h1>}
+      {(this.state.hasMembers && 
+      <> 
+      <h1>{this.generateQuestion()}</h1> 
+      <QuizForm setToCorrect={this.setToCorrect} correctMember={this.state.remainingMember[this.state.remainingMember.length - 1]}/> </>)
+      || <h1>Please add family members!</h1>}
+      
+      {(this.state.isCorrect && <h1> Good job!</h1>) ||<h1>Please try again!</h1>}
+      
     </div>
-    
-  //   if (remainingMember == []){
-
-
-  //   <p></p>
 
   );
 
 }
-
 }
 
 export default Quiz;
