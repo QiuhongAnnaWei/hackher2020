@@ -12,17 +12,17 @@ class QuizForm extends React.Component {
       };
 
       state = {
-        selectedRelation: "",
+        selectedRelation: "Grandparent",
       };
 
       handleOptionChange = changeEvent => {
         this.setState({
-          selectedOption: changeEvent.target.value
+          selectedRelation: changeEvent.target.value
         });
       };
     
       handleFormSubmit = formSubmitEvent => {
-        //formSubmitEvent.preventDefault();
+        formSubmitEvent.preventDefault();
     
         //console.log("You have submitted:", this.state.selectedOption);
     
@@ -34,12 +34,12 @@ class QuizForm extends React.Component {
     render() {
         return (
           <div>
-            <form onSubmit={this.props.handleFormSubmit}>
+            <form onSubmit={this.handleFormSubmit}>
       
             <div className="form-check">
               <label>
                 <input type="radio" name="react-tips" value="Grandparent" checked={this.state.selectedOption === "Grandparent"}
-                          onChange={this.props.handleOptionChange}
+                          onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Grandparent
               </label>
@@ -48,7 +48,7 @@ class QuizForm extends React.Component {
             <div className="form-check">
               <label>
                 <input type="radio" name="react-tips" value="Parent" checked={this.state.selectedOption === "Parent"}
-                          onChange={this.props.handleOptionChange}
+                          onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Parent
               </label>
@@ -56,7 +56,7 @@ class QuizForm extends React.Component {
             <div className="form-check">
               <label>
                 <input type="radio" name="react-tips" value="Uncle" checked={this.state.selectedOption === "Uncle"}
-                          onChange={this.props.handleOptionChange}
+                          onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Uncle
               </label>
@@ -64,7 +64,7 @@ class QuizForm extends React.Component {
             <div className="form-check">
               <label>
                 <input type="radio" name="react-tips" value="Aunt" checked={this.state.selectedOption === "Aunt"}
-                          onChange={this.props.handleOptionChange}
+                          onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Aunt
               </label>
@@ -72,7 +72,7 @@ class QuizForm extends React.Component {
             <div className="form-check">
               <label>
                 <input type="radio" name="react-tips" value="Sibling" checked={this.state.selectedOption === "Sibling"}
-                          onChange={this.props.handleOptionChange}
+                          onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Sibling
               </label>
@@ -80,7 +80,7 @@ class QuizForm extends React.Component {
             <div className="form-check">
               <label>
                 <input type="radio" name="react-tips" value="Cousin" checked={this.state.selectedOption === "Cousin"}
-                          onChange={this.props.handleOptionChange}
+                          onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Cousin
               </label>
@@ -89,7 +89,7 @@ class QuizForm extends React.Component {
             <div className="form-check">
               <label>
                 <input type="radio" name="react-tips" value="Child" checked={this.state.selectedOption === "Child"}
-                          onChange={this.props.handleOptionChange}
+                          onChange={this.handleOptionChange}
                   className="form-check-input"/>
                 Child
               </label>
@@ -97,7 +97,8 @@ class QuizForm extends React.Component {
       
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Grandchild"
+                <input type="radio" name="react-tips" value="Grandchild" checked={this.state.selectedOption === "Grandchild"}
+                          onChange={this.handleOptionChange}
                   className="form-check-input"/>
                 Grandchild
               </label>

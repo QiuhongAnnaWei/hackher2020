@@ -39,17 +39,18 @@ class Quiz extends React.Component {
       return <h1>Congrats! You've identified all family members!</h1>
     } else {
       var currMember = this.state.remainingMember[this.state.remainingMember.length - 1]}
-      return (<p>"Who is: " + {currMember[0]} + "?"</p>);
+      return (<p>"Who is: " {currMember[0]} "?"</p>);
     }
 
 render() {
   console.log(this.state.hasMembers)
+  console.log(this.generateQuestion())
   return (
     <div>
-      {(this.state.hasMembers && 
-      <> 
+      {(true && 
+      (<> 
       <h1>{this.generateQuestion()}</h1> 
-      <QuizForm setToCorrect={this.setToCorrect} correctMember={this.state.remainingMember[this.state.remainingMember.length - 1]}/> </>)
+      <QuizForm setToCorrect={this.setToCorrect} correctMember={this.state.remainingMember[this.state.remainingMember.length - 1]}/> </>))
       || <h1>Please add family members!</h1>}
       
       {(this.state.isCorrect && <h1> Good job!</h1>) ||<h1>Please try again!</h1>}
