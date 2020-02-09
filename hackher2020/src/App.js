@@ -37,7 +37,7 @@ class App extends PureComponent {
     console.log(this.state.hasMembers)
     return (
      <>
-      <h1 className="App-header"> Alzheimer's </h1>
+      <h1 className="App-header"> Alpine </h1>
 
       <div className="body">
       <Tab.Container className="tabs" defaultActiveKey="newmember">
