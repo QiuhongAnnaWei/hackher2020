@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.List-Component{
+  display: flex;
+  /* height: 300px; */
+  width: 800px;
+  backgroundColor: #FFF;
+  filter: drop-shadow(0px 0px 10px #666);
+  outline-style: solid;
+  padding: 30px;
+  /* margin-left: 280px; */
+}
+
+.correctness{
+  background-color: black;
 }

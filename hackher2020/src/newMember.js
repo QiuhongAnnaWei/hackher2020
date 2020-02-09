@@ -34,7 +34,7 @@ class NewMember extends React.Component {
                 <Form.Row>
                   <Form.Group as={Col} controlId="formName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="email" placeholder="Enter name"
+                    <Form.Control type="name" placeholder="Enter name"
                     onChange={e => {
                       this.setName(e);
                     }}/>
