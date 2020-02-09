@@ -25,9 +25,6 @@ render(){
     <h1 className="correctness"> {this.correctness} </h1>
     // if(remainingMember == []){
 
-    }
-    <p></p>
-
   );
 }
 
