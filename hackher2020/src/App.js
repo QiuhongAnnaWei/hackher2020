@@ -61,7 +61,7 @@ class App extends PureComponent {
           <NewMember addNewMember={this.addNewMember}/>
         </Tab.Pane>
         <Tab.Pane eventKey="quiz">
-        {(this.state.hasMembers && <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)} 
+        {(this.state.hasMembers && <Quiz memberList={this.state.memberData} 
                   hasMembers={this.state.hasMembers}/>) || <h1> Please enter data</h1>}
         </Tab.Pane>
         <Tab.Pane eventKey="reviewcards">

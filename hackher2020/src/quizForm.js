@@ -15,6 +15,14 @@ class QuizForm extends React.Component {
         selectedRelation: "Grandparent",
       };
 
+      componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        if (this.props.userID !== prevProps.userID) {
+          this.fetchData(this.props.userID);
+          this.setState({ selectedRelation: "Grandparent" });
+        }
+      }
+
       handleOptionChange = changeEvent => {
         this.setState({
           selectedRelation: changeEvent.target.value
@@ -23,11 +31,11 @@ class QuizForm extends React.Component {
     
       handleFormSubmit = formSubmitEvent => {
         formSubmitEvent.preventDefault();
+        console.log(this.props.correctMember);
+        console.log(this.state.selectedRelation === this.props.correctMember[1]);
     
-        //console.log("You have submitted:", this.state.selectedOption);
-    
-        if (this.state.selectedRelation == this.props.correctMember) {
-            return(this.props.setToCorrect());
+        if (this.state.selectedRelation === this.props.correctMember[1]) {
+            this.props.setToCorrect();
         }
       };
 
