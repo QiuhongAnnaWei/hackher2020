@@ -38,7 +38,7 @@ class QuizForm extends React.Component {
       
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Grandparent" checked={this.state.selectedOption === "Grandparent"}
+                <input type="radio" name="react-tips" value="Grandparent" checked={this.state.selectedRelation === "Grandparent"}
                           onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Grandparent
@@ -47,7 +47,7 @@ class QuizForm extends React.Component {
       
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Parent" checked={this.state.selectedOption === "Parent"}
+                <input type="radio" name="react-tips" value="Parent" checked={this.state.selectedRelation === "Parent"}
                           onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Parent
@@ -55,7 +55,7 @@ class QuizForm extends React.Component {
             </div>
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Uncle" checked={this.state.selectedOption === "Uncle"}
+                <input type="radio" name="react-tips" value="Uncle" checked={this.state.selectedRelation === "Uncle"}
                           onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Uncle
@@ -63,7 +63,7 @@ class QuizForm extends React.Component {
             </div>
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Aunt" checked={this.state.selectedOption === "Aunt"}
+                <input type="radio" name="react-tips" value="Aunt" checked={this.state.selectedRelation === "Aunt"}
                           onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Aunt
@@ -71,7 +71,7 @@ class QuizForm extends React.Component {
             </div>
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Sibling" checked={this.state.selectedOption === "Sibling"}
+                <input type="radio" name="react-tips" value="Sibling" checked={this.state.selectedRelation === "Sibling"}
                           onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Sibling
@@ -79,7 +79,7 @@ class QuizForm extends React.Component {
             </div>
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Cousin" checked={this.state.selectedOption === "Cousin"}
+                <input type="radio" name="react-tips" value="Cousin" checked={this.state.selectedRelation === "Cousin"}
                           onChange={this.handleOptionChange}
                   className="form-check-input" />
                 Cousin
@@ -88,7 +88,7 @@ class QuizForm extends React.Component {
       
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Child" checked={this.state.selectedOption === "Child"}
+                <input type="radio" name="react-tips" value="Child" checked={this.state.selectedRelation === "Child"}
                           onChange={this.handleOptionChange}
                   className="form-check-input"/>
                 Child
@@ -97,7 +97,7 @@ class QuizForm extends React.Component {
       
             <div className="form-check">
               <label>
-                <input type="radio" name="react-tips" value="Grandchild" checked={this.state.selectedOption === "Grandchild"}
+                <input type="radio" name="react-tips" value="Grandchild" checked={this.state.selectedRelation === "Grandchild"}
                           onChange={this.handleOptionChange}
                   className="form-check-input"/>
                 Grandchild
