@@ -22,22 +22,22 @@ class App extends PureComponent {
   };
 
   addNewMember = (member) => {
-    console.log("before:" + this.memberData);
+    console.log("before:" + this.state.memberData);
     // const fullList = JSON.parse(JSON.stringify(this.state.memberData));
     // fullList.concat(member);
-    // var fullList = this.memberData.concat(member);
-    // this.setState(state => {
-    //   const memberData = state.memberData.concat(member);
-    //   return {
-    //     isAddingMembers: true,
-    //     memberData,
-    //   };
-    // });
+    // var fullList = this.state.memberData.concat(member);
+    this.setState(state => {
+      const memberData = state.memberData.concat(member);
+      return {
+        isAddingMembers: true,
+        memberData,
+      };
+    });
 
 
 
     // fullList });
-    console.log(this.memberData);
+    console.log(this.state.memberData);
   };
 
   render() {
@@ -47,7 +47,7 @@ class App extends PureComponent {
       <br/>
 
 
-      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+      <Tab.Container className="tabs" defaultActiveKey="first">
   <Row>
     <Col sm={3}>
       <Nav variant="pills" className="flex-column">
@@ -65,19 +65,15 @@ class App extends PureComponent {
           <NewMember addNewMember={this.addNewMember}/>
         </Tab.Pane>
         <Tab.Pane eventKey="quiz">
-           <Quiz memberList={this.memberData}/>
+           <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)}/>
         </Tab.Pane>
       </Tab.Content>
     </Col>
   </Row>
 </Tab.Container>
-      </>
-      // <div>
-      // {(this.state.isAddingMembers && <NewMember addNewMember={this.addNewMember}/>)
-      // || <Quiz memberList={this.memberData}/>}
-      // </div>
+</>
     );
   }
 }
-//.sort(() => Math.random() - 0.5
+
 export default App;
