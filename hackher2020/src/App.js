@@ -5,11 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import NewMember from './newMember';
 import Quiz from './quiz';
+import ReviewCards from './reviewCards';
 import {Tab, Tabs, Row, Col, Nav} from 'react-bootstrap';
 
 class App extends PureComponent {
   state = {
     memberData: [],
+    hasMembers: false,
   };
 
   addNewMember = (member) => {
@@ -18,9 +20,10 @@ class App extends PureComponent {
     // fullList.concat(member);
     // var fullList = this.state.memberData.concat(member);
     this.setState(state => {
-      const memberData = state.memberData.concat(member);
+      const memberData = state.memberData.concat([member]);
       return {
         memberData,
+        hasMembers: true,
       };
     });
 
@@ -33,16 +36,18 @@ class App extends PureComponent {
   render() {
     return (
      <>
-      <h1 className="App-header"> Alzeihmer's </h1>
-      <br/>
+      <h1 className="App-header"> Alzheimer's </h1>
 
-
+      <div className="body">
       <Tab.Container className="tabs" defaultActiveKey="first">
   <Row>
     <Col sm={3}>
       <Nav variant="pills" className="flex-column">
         <Nav.Item>
           <Nav.Link eventKey="newmember"> Add New Member</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="reviewcards">Review Members</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="quiz">Quiz</Nav.Link>
@@ -55,12 +60,19 @@ class App extends PureComponent {
           <NewMember addNewMember={this.addNewMember}/>
         </Tab.Pane>
         <Tab.Pane eventKey="quiz">
-           <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)}/>
+           <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)} 
+                  hasMembers={this.state.hasMembers}/>
+        </Tab.Pane>
+        <Tab.Pane eventKey="reviewcards">
+          {(this.state.dataEmpty && <h1> Please enter data</h1>) ||
+          <ReviewCards members={this.state.memberData} 
+                        hasMembers={this.state.hasMembers}/>}
         </Tab.Pane>
       </Tab.Content>
     </Col>
   </Row>
 </Tab.Container>
+</div>
 </>
     );
   }
