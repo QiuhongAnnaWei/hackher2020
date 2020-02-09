@@ -13,9 +13,9 @@ class ReviewCard extends React.Component {
     return (
         <>
         <div className="Card-Component">
-            <h2>Name: {this.props.memberInfo[0]}</h2>
+            <h2>NAME: {this.props.memberInfo[0]}</h2>
             <br/>
-            <h3>Relationship: {this.props.memberInfo[1]}</h3>
+            <h3>RELATIONSHIP: {this.props.memberInfo[1]}</h3>
         </div>
         <br/>
         </>

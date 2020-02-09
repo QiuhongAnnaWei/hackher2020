@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { Col, Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Background from './background_notecard.png';
 
 class NewMember extends React.Component {
     static propTypes = {

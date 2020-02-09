@@ -15,7 +15,7 @@ class ReviewCards extends React.Component {
         return <ReviewCard memberInfo={info}/>;
       })
     
-    return  <ul>{ membersInfo }</ul>
+    return  <ul className="cards">{ membersInfo }</ul>
   }
   
   }

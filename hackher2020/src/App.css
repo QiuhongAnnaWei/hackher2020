@@ -48,12 +48,14 @@
 }
 
 .Card-Component{
-  /* height: 300px; */
-  width: 800px;
-  background-color: rgb(204, 232, 233);
+  height: 200px; 
+  width: 400px;
+  /* background-color: rgb(204, 232, 233); */
   box-shadow: 7px 5px 10px -3px rgba(107,106,107,1);
   /* border: 4px solid grey; */
   padding: 30px;
+  background-image: url('./background_notecard.png');
+  background-size: 400px;
 }
 
 .correctness{
@@ -66,5 +68,16 @@
 }
 
 .body{
-  padding: 20px;
+  padding: 30px;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.cards > * {
+  margin: 2em 0;
 }

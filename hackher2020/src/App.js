@@ -37,7 +37,6 @@ class App extends PureComponent {
     return (
      <>
       <h1 className="App-header"> Alzheimer's </h1>
-      <br/>
 
       <div className="body">
       <Tab.Container className="tabs" defaultActiveKey="first">
@@ -48,10 +47,10 @@ class App extends PureComponent {
           <Nav.Link eventKey="newmember"> Add New Member</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="quiz">Quiz</Nav.Link>
+          <Nav.Link eventKey="reviewcards">Review Members</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="reviewcards">Review Members</Nav.Link>
+          <Nav.Link eventKey="quiz">Quiz</Nav.Link>
         </Nav.Item>
       </Nav>
     </Col>
