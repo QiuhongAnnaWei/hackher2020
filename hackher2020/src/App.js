@@ -15,7 +15,6 @@ class App extends PureComponent {
   };
 
   addNewMember = (member) => {
-    console.log("before:" + this.state.memberData);
     // const fullList = JSON.parse(JSON.stringify(this.state.memberData));
     // fullList.concat(member);
     // var fullList = this.state.memberData.concat(member);
@@ -26,15 +25,9 @@ class App extends PureComponent {
         hasMembers: true,
       };
     });
-
-
-
-    // fullList });
-    console.log(this.state.memberData);
   };
 
   render() {
-    console.log(this.state.hasMembers)
     return (
      <>
       <h1 className="App-header"> Alpine </h1>
@@ -61,7 +54,7 @@ class App extends PureComponent {
           <NewMember addNewMember={this.addNewMember}/>
         </Tab.Pane>
         <Tab.Pane eventKey="quiz">
-        {(this.state.hasMembers && <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)} 
+        {(this.state.hasMembers && <Quiz memberList={this.state.memberData.sort(() => Math.random() - 0.5)} onNameChange = {copyML()} 
                   hasMembers={this.state.hasMembers}/>) || <h1> Please enter data</h1>}
         </Tab.Pane>
         <Tab.Pane eventKey="reviewcards">

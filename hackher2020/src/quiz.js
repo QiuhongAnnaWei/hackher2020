@@ -17,11 +17,29 @@ class Quiz extends React.Component {
     isCorrect: false,
   };
 
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.userID !== prevProps.userID) {
+      this.fetchData(this.props.userID);
+      this.setState({ remainingMember: this.props.memberList});
+    }
+  }
+  copyML = () => {
+    console.log("copyML: " + this.state.remainingMember);
+    const ic = this.state.isCorrect;
+    this.setState(state => {
+      return {
+        remainingMember: this.props.memberList,
+        isCorrect: ic,
+      };
+    });
+  }
+
   setToCorrect = () => {
-    console.log(this.state.remainingMember)
+    console.log("setToCorrect: " + this.state.remainingMember);
     var myRemaining = this.state.remainingMember;
     const current = myRemaining.pop();
-    console.log(this.state.remainingMember)
+    this.generateQuestion();
     this.setState(state => {
       return {
         remainingMember: myRemaining,
@@ -33,27 +51,28 @@ class Quiz extends React.Component {
   //print correct?
 
   generateQuestion = () => {
-    console.log("hello")
+    console.log("generateQuestion: " + this.props.memberList + "/" + this.state.remainingMember);
 
-    if (this.state.remainingMember == []){
+    if (this.state.remainingMember.length == 0){
       return <h1>Congrats! You've identified all family members!</h1>
     } else {
-      var currMember = this.state.remainingMember[this.state.remainingMember.length - 1]}
+      var currMember = this.state.remainingMember.pop();
+      this.setState(remainingMember => {this.state.remainingMember.push(currMember)});
+    console.log("generateQuestion2: " + currMember + "/" + this.state.remainingMember)}
       return (<p>"Who is: " {currMember[0]} "?"</p>);
     }
 
 render() {
-  console.log(this.state.hasMembers)
-  console.log(this.generateQuestion())
   return (
     <div>
       {(true && 
       (<> 
+      {/* <p>copyML()</p> */}
       <h1>{this.generateQuestion()}</h1> 
       <QuizForm setToCorrect={this.setToCorrect} correctMember={this.state.remainingMember[this.state.remainingMember.length - 1]}/> </>))
       || <h1>Please add family members!</h1>}
       
-      {(this.state.isCorrect && <h1> Good job!</h1>) ||<h1>Please try again!</h1>}
+      {(this.state.isCorrect && <h1> Good job!</h1>)}
       
     </div>
 

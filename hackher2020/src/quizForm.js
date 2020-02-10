@@ -22,12 +22,15 @@ class QuizForm extends React.Component {
       };
     
       handleFormSubmit = formSubmitEvent => {
+        
         formSubmitEvent.preventDefault();
     
-        //console.log("You have submitted:", this.state.selectedOption);
-    
-        if (this.state.selectedRelation == this.props.correctMember) {
+        if (this.state.selectedRelation == this.props.correctMember[1]) {
+          console.log("handleFormSubmit: correct/correctMember: " + this.props.correctMember);
             return(this.props.setToCorrect());
+        }else{
+          console.log("handleFormSubmit: try again/" + this.props.correctMember[1]);
+          return <h2> Please try again!</h2>
         }
       };
 

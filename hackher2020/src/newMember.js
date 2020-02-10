@@ -66,6 +66,7 @@ class NewMember extends React.Component {
                 <Button
                   variant="secondary"
                   onClick={() => {
+                    console.log("newMember form submitted");
                     this.props.addNewMember([this.state.name, this.state.relation]);
                   }}
                 >
