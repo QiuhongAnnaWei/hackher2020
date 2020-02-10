@@ -12,6 +12,7 @@ class Quiz extends React.Component {
     memberList: PropTypes.array.isRequired,
   };
 
+
   state = {
     remainingMember: this.props.memberList,
     isCorrect: false,
@@ -19,8 +20,7 @@ class Quiz extends React.Component {
 
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):
-    if (this.props.userID !== prevProps.userID) {
-      this.fetchData(this.props.userID);
+    if (this.props.memberList !== prevProps.memberList) {
       this.setState({ remainingMember: this.props.memberList});
     }
   }

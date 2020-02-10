@@ -74,16 +74,12 @@ class NewMember extends React.Component {
                 <Button
                   variant="secondary"
                   onClick={() => {
-<<<<<<< HEAD
-                    console.log("newMember form submitted");
-                    this.props.addNewMember([this.state.name, this.state.relation]);
-=======
                     this.props.addNewMember([this.state.name, this.state.relation, this.state.notes]);
->>>>>>> 86bf47de21609ae4be8e6ac4d9a424dc11e7d3fa
                   }}
                 >
                   Submit
                 </Button>
+                
               </Form>
             </Col>
             <Col></Col>
