@@ -36,7 +36,7 @@ class Quiz extends React.Component {
   }
 
   setToCorrect = () => {
-    console.log("setToCorrect: " + this.state.remainingMember);
+    console.log("set to correct called: "+ this.state.remainingMember);
     var myRemaining = this.state.remainingMember;
     const current = myRemaining.pop();
     this.generateQuestion();
@@ -56,13 +56,19 @@ class Quiz extends React.Component {
     if (this.state.remainingMember.length == 0){
       return <h1>Congrats! You've identified all family members!</h1>
     } else {
-      var currMember = this.state.remainingMember.pop();
-      this.setState(remainingMember => {this.state.remainingMember.push(currMember)});
-    console.log("generateQuestion2: " + currMember + "/" + this.state.remainingMember)}
-      return (<p>"Who is: " {currMember[0]} "?"</p>);
+      var currMember = this.state.remainingMember[this.state.remainingMember.length - 1]}
+      console.log(currMember);
+      if (currMember == null) {
+        return (<p> You are done.</p>);
+      } else{
+        return (<p>Who is {currMember[0]}?</p>);
+      }
     }
 
 render() {
+  console.log(this.state.hasMembers)
+  console.log("member list: " + this.state.remainingMember)
+  console.log(this.generateQuestion())
   return (
     <div>
       {(true && 

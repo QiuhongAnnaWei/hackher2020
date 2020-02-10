@@ -14,10 +14,15 @@ class NewMember extends React.Component {
     state = {
       name: '',
       relation: '',
+      notes: '',
     };
 
     setName = e => {
       this.setState({ name: e.target.value });
+    };
+
+    setNotes = e => {
+      this.setState({ notes: e.target.value });
     };
 
     setRelation = e => {
@@ -60,14 +65,21 @@ class NewMember extends React.Component {
 
                 <Form.Group controlId="formNotes">
                   <Form.Label>Supplemental Notes</Form.Label>
-                  <Form.Control as="textarea" rows="3" />
+                  <Form.Control as="textarea" rows="3" 
+                  onChange={e => {
+                    this.setNotes(e);
+                  }}/>
                 </Form.Group>
 
                 <Button
                   variant="secondary"
                   onClick={() => {
+<<<<<<< HEAD
                     console.log("newMember form submitted");
                     this.props.addNewMember([this.state.name, this.state.relation]);
+=======
+                    this.props.addNewMember([this.state.name, this.state.relation, this.state.notes]);
+>>>>>>> 86bf47de21609ae4be8e6ac4d9a424dc11e7d3fa
                   }}
                 >
                   Submit
